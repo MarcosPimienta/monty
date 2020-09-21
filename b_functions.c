@@ -32,7 +32,7 @@ void functions_m(stack_t **stack, char *cmd_f, unsigned int ln_n)
 {
 	instruction_t inst_funcs[] = {
 		{"pall", pall}, {"push", push}, {"pint", pint},
-		{NULL, NULL}};
+		{"pop", pop}, {NULL, NULL}};
 	unsigned int i = 0;
 	int checker = 0;
 
@@ -54,5 +54,23 @@ void functions_m(stack_t **stack, char *cmd_f, unsigned int ln_n)
 		free(cmd_f);
 		glob_v[1] = 1;
 		exit(EXIT_FAILURE);
+	}
+}
+void pop(stack_t **stack, unsigned int l_n)
+{
+	stack_t *node = *stack;
+
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", l_n);
+		free(stack);
+		glob_v[1] = 1;
+		return;
+	}
+	if (node)
+	{
+
+		*stack = (node)->next;
+		free(node);
 	}
 }
