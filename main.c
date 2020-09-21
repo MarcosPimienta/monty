@@ -30,7 +30,7 @@ char *l_check(char *string, unsigned int l_n)
 			if (num_t[i] < 48 || num_t[i] > 57)
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", l_n);
-				free(string);
+				/* free(string); */
 				glob_v[1] = 1;
 				return (NULL);
 			}
