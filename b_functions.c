@@ -31,7 +31,8 @@ void free_malloc(stack_t *h)
 void functions_m(stack_t **stack, char *cmd_f, unsigned int ln_n)
 {
 	instruction_t inst_funcs[] = {
-		{"pall", pall}, {"push", push}, {NULL, NULL}};
+		{"pall", pall}, {"push", push}, {"pint", pint},
+		{NULL, NULL}};
 	unsigned int i = 0;
 	int checker = 0;
 

@@ -51,3 +51,20 @@ void push(stack_t **stack, unsigned int l_n)
 		copy->prev = node;
 	*stack = node;
 }
+/**
+ * pint - Implement the pint opcode.
+ * @stack: pointer head stack.
+ * @l_n: line number in file.
+ * Return: nothing.
+ */
+
+void pint(stack_t **stack, unsigned int l_n)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", l_n);
+		glob_v[1] = 1;
+		return;
+	}
+	printf("%d\n", (*stack)->n);
+}
